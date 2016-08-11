@@ -1,0 +1,54 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = libraryVersion //YOUR LIBRARY VERSION
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName //YOUR PACKAGE NAME
+        desc = libraryDescription // YOUR LIBRARY DESCRIPTION
+        websiteUrl = siteUrl // YOUR SITE
+        vcsUrl = gitUrl // YOUR GIT REPO
+        licenses = allLicenses // A LIST OF YOUR LICENCES
+        publish = true
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+            gpg {
+                sign = false
+            }
+        }
+    }
+}
+javadoc { //jav doc采用utf-8编码否则会报“GBK的不可映射字符”错误
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+    }
+}
