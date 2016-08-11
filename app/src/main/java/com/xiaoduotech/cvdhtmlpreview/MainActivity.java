@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
+                }else {
+                    Toast.makeText(MainActivity.this, "parse fail, url can't be accessed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
