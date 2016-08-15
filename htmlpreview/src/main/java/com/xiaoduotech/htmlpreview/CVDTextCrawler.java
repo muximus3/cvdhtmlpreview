@@ -296,10 +296,14 @@ public class CVDTextCrawler {
     }
 
     public static boolean isUrl(String text) {
-        String regex = "(^(((ht|f)tp(s?))\\://)?(www.|[a-zA-Z].)[a-zA-Z0-9\\-\\.]+\\.(com|edu|gov|mil|net|org|biz|info|name|museum|us|ca|im|uk)(\\:[0-9]+)*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$)";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(text);
-        return matcher.matches();
+        if (null==text) {
+            return false;
+        } else {
+            String regex = "(^(((ht|f)tp(s?))\\://)?(www.|[a-zA-Z].)[a-zA-Z0-9\\-\\.]+\\.(com|edu|gov|mil|net|org|biz|info|name|museum|us|ca|im|uk)(\\:[0-9]+)*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$)";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(text.toLowerCase());
+            return matcher.matches();
+        }
     }
     /**
      * Verifies if the url is an image

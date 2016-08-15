@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName '1.0.2'
+        versionCode 4
+        versionName '1.0.4'
     }
     buildTypes {
         release {
@@ -34,7 +34,7 @@ publish {
     userOrg = 'muximus3'//bintray.com用户名
     groupId = 'com.xiaoduotech'//jcenter上的路径
     artifactId = 'cvdhtmlpreview'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.0.4'//版本号
     desc = 'htmlpreview'//描述，不重要
     website = 'https://github.com/muximus3/cvdhtmlpreview'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
