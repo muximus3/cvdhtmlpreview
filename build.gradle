@@ -5,8 +5,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+        classpath 'com.novoda:bintray-release:0.3.4'
         classpath 'com.android.tools.build:gradle:2.1.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -30,28 +31,6 @@ ext {
 
 
     junit =  'junit:junit:4.12'
+    picassco = 'com.squareup.picasso:picasso:2.5.2'
 
-
-
-    bintrayRepo = 'maven'
-    bintrayName = 'CVDHtmlPreview'
-
-    publishedGroupId = 'com.xiaoduoteck.cvdhtmlpreview'
-    artifact = 'cvdhtmlpreview'
-    libraryName = 'cvdhtmlpreview'
-    libraryVersionCode = 1
-    libraryVersion = '0.0.1'
-
-    libraryDescription = 'cvdhtmlpreview'
-
-    siteUrl = 'https://github.com/muximus3/cvdhtmlpreview'
-    gitUrl = 'https://github.com/muximus3/cvdhtmlpreview.git'
-
-    developerId = 'muximus3'
-    developerName = 'muximus3'
-    developerEmail = 'muximus10@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
 }

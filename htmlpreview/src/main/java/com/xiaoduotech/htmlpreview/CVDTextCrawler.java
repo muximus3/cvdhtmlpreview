@@ -71,7 +71,6 @@ public class CVDTextCrawler {
             try {
                 Document doc = Jsoup
                         .connect(params[0])
-                        .userAgent("Mozilla")
                         .get();
                 cvdHtmlSourceContent.setUrl(params[0]);
                 cvdHtmlSourceContent.setHtmlCode(extendedTrim(doc.toString()));

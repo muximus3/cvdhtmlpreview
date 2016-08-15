@@ -44,7 +44,7 @@ public class CVDHtmlSourceContent {
 		   return null;
 	   }
    }
-	public CVDHtmlSourceContent getSourceContent(byte[] bytes){
+	public CVDHtmlSourceContent generate(byte[] bytes){
 		try {
 			String jsonStr = new String(bytes,"utf-8");
 			JSONObject jsonObject = new JSONObject(jsonStr);

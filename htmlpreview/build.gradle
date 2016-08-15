@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -6,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.libraryVersionCode
-        versionName rootProject.ext.libraryVersion
+        versionCode 2
+        versionName '1.0.2'
     }
     buildTypes {
         release {
@@ -25,9 +26,15 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile rootProject.ext.junit
     compile files('libs/jsoup-1.9.2.jar')
-    compile 'com.squareup.picasso:picasso:2.5.2'
 
 }
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
 
+//添加
+publish {
+    userOrg = 'muximus3'//bintray.com用户名
+    groupId = 'com.xiaoduotech'//jcenter上的路径
+    artifactId = 'cvdhtmlpreview'//项目名称
+    publishVersion = '1.0.2'//版本号
+    desc = 'htmlpreview'//描述，不重要
+    website = 'https://github.com/muximus3/cvdhtmlpreview'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+}
