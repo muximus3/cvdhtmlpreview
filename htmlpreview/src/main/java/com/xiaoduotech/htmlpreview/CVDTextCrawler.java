@@ -28,7 +28,7 @@ public class CVDTextCrawler {
 
     public void makePreview(String url, LinkPreviewCallback callback) {
         this.callback = callback;
-        new GetCode(ALL).execute(getLegalUrl(url));
+        new GetCode(ALL).execute(getLegalUrl(url.toLowerCase()));
     }
 
     public void makePreview(LinkPreviewCallback callback, String url,
